@@ -1,5 +1,7 @@
 {# Template de base - Commentaire #}
-Création d'un premier template avec {{ nom_du_moteur_template }}<br>
+Création d'un premier template avec {{ nom_du_moteur_template }}
+
+<br>
 
 {# Utilisation des filtres - filter #}
 {% filter upper %}
@@ -15,6 +17,35 @@ Création d'un premier template avec {{ nom_du_moteur_template }}<br>
 {% filter upper|escape %}
     Test d'un filtre upper <em>avec échappement de balises HTML</em>
 {% endfilter %}
+
 <br>
 
 {# Utilisation des conditions #}
+{% if myVariable > 1 %}
+  Ma variable est supérieure à 1 et est égale à {{ myVariable }}.
+{% elseif myVariable == 1 %}
+    Ma variable est égale à 1
+{% else %}
+    Ma variable est inférieure à 1.
+{% endif %}
+
+<br>
+
+{# buit-in tests #}
+{% if variable3 is defined %}
+    Le résultat est {{ variable3 }}.
+{% else %}    
+    variable3 n'est pas définie.
+{% endif %}
+<br>
+{% if testDivisible is divisibleby(5) %}
+    testDivisible est divisible par 5.
+{% else %}
+    testDivisible n'est pas divisible par 5.
+{% endif %}
+<br>
+{% if testEmpty is empty %}
+    testEmpty est vide.
+{% else %}
+    La valeur de testEmpty est {{ testEmpty }}.
+{% endif %}

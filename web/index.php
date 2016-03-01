@@ -29,5 +29,9 @@ require_once __DIR__ . '/../app/config/config.php';
 // Ou plus simple
 
 echo $twigTpl->render('index.twig', array(
-    'nom_du_moteur_template' => 'Twig from SensioLabs'
+    'nom_du_moteur_template'    => 'Twig from SensioLabs',
+    'myVariable'                => 5,
+    //'variable3'                  => 'Toto'
+    'testDivisible'             => 10,
+    'testEmpty'                 => '',
 ));
