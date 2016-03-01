@@ -67,3 +67,16 @@ Création d'un premier template avec {{ nom_du_moteur_template }}
 {% for letter in 'a'|upper..'z'|upper %}
     {{ letter }} est la lettre numéro {{ loop.index }} de l'alphabet.<br>
 {% endfor %}
+
+<br>
+
+{# Imports #}
+{% import 'forms.twig' as forms %}
+
+<dl>
+    <dt>Username</dt>
+    <dd>{{ forms.input('username') }}</dd>
+    <dt>Password</dt>
+    <dd>{{ forms.input('password', none, 'password') }}</dd>
+</dl>
+<p>{{ forms.textarea('comment') }}</p>
