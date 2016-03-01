@@ -1,82 +1,99 @@
-{# Intégrer un autre template #}
-{% include 'header.twig' %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css" />
+    <title>Index de test</title>
+</head>
+<body>
+    <div id="content">
+        {# Intégrer un autre template #}
+        {% include 'header.twig' %}
 
-{# Template de base - Commentaire #}
-Création d'un premier template avec {{ nom_du_moteur_template }}
+        {# Template de base - Commentaire #}
+        Création d'un premier template avec {{ nom_du_moteur_template }}
 
-<br>
+        <br>
 
-{# Utilisation des filtres - filter #}
-{% filter upper %}
-    Test d'un filtre avec inclusion de variable :
-    {{ nom_du_moteur_template }}
-{% endfilter %}
-<br>
-{% filter title %}
-    Test d'un filtre avec inclusion de variable :
-    {{ nom_du_moteur_template }}
-{% endfilter %}
-<br>
-{% filter upper|escape %}
-    Test d'un filtre upper <em>avec échappement de balises HTML</em>
-{% endfilter %}
+        {# Utilisation des filtres - filter #}
+        {% filter upper %}
+            Test d'un filtre avec inclusion de variable :
+            {{ nom_du_moteur_template }}
+        {% endfilter %}
+        <br>
+        {% filter title %}
+            Test d'un filtre avec inclusion de variable :
+            {{ nom_du_moteur_template }}
+        {% endfilter %}
+        <br>
+        {% filter upper|escape %}
+            Test d'un filtre upper <em>avec échappement de balises HTML</em>
+        {% endfilter %}
 
-<br>
+        <br>
 
-{# Utilisation des conditions #}
-{% if myVariable > 1 %}
-  Ma variable est supérieure à 1 et est égale à {{ myVariable }}.
-{% elseif myVariable == 1 %}
-    Ma variable est égale à 1
-{% else %}
-    Ma variable est inférieure à 1.
-{% endif %}
+        {# Utilisation des conditions #}
+        {% if myVariable > 1 %}
+          Ma variable est supérieure à 1 et est égale à {{ myVariable }}.
+        {% elseif myVariable == 1 %}
+            Ma variable est égale à 1
+        {% else %}
+            Ma variable est inférieure à 1.
+        {% endif %}
 
-<br>
+        <br>
 
-{# buit-in tests #}
-{% if variable3 is defined %}
-    Le résultat est {{ variable3 }}.
-{% else %}    
-    variable3 n'est pas définie.
-{% endif %}
-<br>
-{% if testDivisible is divisibleby(5) %}
-    testDivisible est divisible par 5.
-{% else %}
-    testDivisible n'est pas divisible par 5.
-{% endif %}
-<br>
-{% if testEmpty is empty %}
-    testEmpty est vide.
-{% else %}
-    La valeur de testEmpty est {{ testEmpty }}.
-{% endif %}
+        {# buit-in tests #}
+        {% if variable3 is defined %}
+            Le résultat est {{ variable3 }}.
+        {% else %}    
+            variable3 n'est pas définie.
+        {% endif %}
+        <br>
+        {% if testDivisible is divisibleby(5) %}
+            testDivisible est divisible par 5.
+        {% else %}
+            testDivisible n'est pas divisible par 5.
+        {% endif %}
+        <br>
+        {% if testEmpty is empty %}
+            testEmpty est vide.
+        {% else %}
+            La valeur de testEmpty est {{ testEmpty }}.
+        {% endif %}
 
-<br>
+        <br>
 
-{# La boucle for #}
-{% for i in 0..20 %}
-    * ({{ i }})
-{% endfor %}
-<br>
-{% for letter in 'a'|upper..'z'|lower %}
-    {{ letter }}
-{% endfor %}
-<br>
-{% for letter in 'a'|upper..'z'|upper %}
-    {{ letter }} est la lettre numéro {{ loop.index }} de l'alphabet.<br>
-{% endfor %}
+        {# La boucle for #}
+        {% for i in 0..20 %}
+            * ({{ i }})
+        {% endfor %}
+        <br>
+        {% for letter in 'a'|upper..'z'|lower %}
+            {{ letter }}
+        {% endfor %}
+        <br>
+        {% for letter in 'a'|upper..'z'|upper %}
+            {{ letter }} est la lettre numéro {{ loop.index }} de l'alphabet.<br>
+        {% endfor %}
 
-<br>
+        <br>
 
-{# Imports #}
-{% import 'forms.twig' as forms %}
+        {# Imports #}
+        {% import 'forms.twig' as forms %}
 
-<dl>
-    <dt>Username</dt>
-    <dd>{{ forms.input('username') }}</dd>
-    <dt>Password</dt>
-    <dd>{{ forms.input('password', none, 'password') }}</dd>
-</dl>
-<p>{{ forms.textarea('comment') }}</p>
+        <dl>
+            <dt>Username</dt>
+            <dd>{{ forms.input('username') }}</dd>
+            <dt>Password</dt>
+            <dd>{{ forms.input('password', none, 'password') }}</dd>
+        </dl>
+        <p>{{ forms.textarea('comment') }}</p>
+        
+        <br>
+        
+        {# Test héritage #}
+        <p><a href="heritage.php">Test d'héritage</a></p>
+    </div>
+</body>
+</html>
