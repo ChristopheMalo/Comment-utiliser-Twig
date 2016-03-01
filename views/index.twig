@@ -1,2 +1,17 @@
 <!--Template de base-->
-Création d'un premier template avec {{ nom_du_moteur_template }}
+Création d'un premier template avec {{ nom_du_moteur_template }}<br>
+
+{% filter upper %}
+    Test d'un filtre avec inclusion de variable :
+    {{ nom_du_moteur_template }}
+{% endfilter %}
+<br>
+{% filter title %}
+    Test d'un filtre avec inclusion de variable :
+    {{ nom_du_moteur_template }}
+{% endfilter %}
+<br>
+{% filter upper|escape %}
+    Test d'un filtre upper <em>avec échappement de balises HTML</em>
+{% endfilter %}
+<br>
