@@ -1,0 +1,15 @@
+{% extends "base.twig" %}
+
+{% block title %}Index{% endblock %}
+{% block head %}
+  {{ parent() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+  <h1>Héritage depuis base.twig</h1>
+  <p class="important">
+    Test d'une page avec héritage
+  </p>
+{% endblock %}
