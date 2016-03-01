@@ -49,3 +49,18 @@ Création d'un premier template avec {{ nom_du_moteur_template }}
 {% else %}
     La valeur de testEmpty est {{ testEmpty }}.
 {% endif %}
+
+<br>
+
+{# La boucle for #}
+{% for i in 0..20 %}
+    * ({{ i }})
+{% endfor %}
+<br>
+{% for letter in 'a'|upper..'z'|lower %}
+    {{ letter }}
+{% endfor %}
+<br>
+{% for letter in 'a'|upper..'z'|upper %}
+    {{ letter }} est la lettre numéro {{ loop.index }} de l'alphabet.<br>
+{% endfor %}
